@@ -41,5 +41,5 @@ for row in text:
 texts = ['David Petr','Iva Pavel David Ada',
          'Davidson Pavelek','Pavel David Jansen']
 for text in texts:
-    if re.search(r'(?=David\s)?(?=Pavel\s)(?!Petr\s)(?!Jan\s)',text):
+    if re.search(r'(r'(?=.*?\bDavid\s\b)?(?=.*?\bPavel\b)(?!.*?\bPetr\b)(?!.*?\bJan\b)',text)',text):
         print(text)
