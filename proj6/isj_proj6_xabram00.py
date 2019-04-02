@@ -14,7 +14,6 @@ class Polynomial:
         elif args: # if input is only args: Polynomial(0,1,0,-1,4,-2,0,1,3,0)
             self.polynom = args
         else:  # if input Polynomial(x2=0...)
-            
             self.polynom = [kwargs.get(x, 0) for x in ['x' + str(i) for i in range(len(kwargs)+1)]]
     
     def __str__(self):
