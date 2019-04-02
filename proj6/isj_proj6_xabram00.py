@@ -26,7 +26,7 @@ class Polynomial:
                     ('x^' + str(i) if i > 1              #'+/-dx^i'
                     else 'x' if i==1                     #'+/-dx'
                     else '')                             #'+/-d'
-                    for i in range(0, len(self.polynom)) if self.polynom[i] != 0] #if == 0 => "0"
+                    for i in range(len(self.polynom)) if self.polynom[i] != 0] #if == 0 => "0"
         #PolList output format = ['+1x', '-1x^3', '+4x^4', '-2x^5', '+1x^7', '+3x^8'] needed reversed " +/- (z>1) x"
         if len(PolList) == 0:
              return "0"    
@@ -38,7 +38,7 @@ class Polynomial:
         input: two polynoms (self, other)
         output: True/False of all elemets
         """
-        for i in range(0, len(self.polynom)):
+        for i in range(len(self.polynom)):
             return self.polynom[i] == other.polynom[i]
         
     
@@ -80,8 +80,8 @@ class Polynomial:
         output: one polynom (elements multiplied)
         """
         PolList = [0] * (len(self.polynom) + len(other.polynom) + 1)
-        for i in range(0, len(self.polynom)):
-            for j in range(0, len(other.polynom)):
+        for i in range(len(self.polynom)):
+            for j in range(len(other.polynom)):
                 PolList[i + j] += self.polynom[i] * other.polynom[j]
         return Polynomial(PolList)
     
@@ -104,10 +104,10 @@ class Polynomial:
         """
         result=0
         if not y:
-            for i in range(0, len(self.polynom)):
+            for i in range(len(self.polynom)):
                 result=result+self.polynom[i]*(x**i)
             return result
-        for i in range(0, len(self.polynom)):
+        for i in range(len(self.polynom)):
             result=result-self.polynom[i]*(x**i)+self.polynom[i]*(y**i)
         return result
 
